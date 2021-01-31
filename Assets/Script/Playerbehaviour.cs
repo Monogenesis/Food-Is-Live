@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Playerbehaviour : MonoBehaviour
 {
-    public float minCameraZoom = 10.0f;
-    public float maxCameraZoom = 20.0f;
+    public float minCameraZoom = 5.0f;
+    public float maxCameraZoom = 15.0f;
     public float cameraZoomStep = 0.1f;
-    public float speed = 30f;
+    public float speed = 20.0f;
     public float speedMultiplicator = 1.0f;
     public float foodMeter = 30.0f;
-    public float zoomFoodDecay = 0.2f;
+    public float zoomFoodDecay = 0.4f;
     public float foodDecay = 0.02f;
     public readonly float maxFood = 100.0f;
 
@@ -57,7 +57,7 @@ public class Playerbehaviour : MonoBehaviour
     {
         if (foodMeter > 0f)
         {
-            speedMultiplicator = 2.0f;
+            speedMultiplicator = 1.75f;
             foodMeter -= zoomFoodDecay;
             if (foodMeter < 0)
             {

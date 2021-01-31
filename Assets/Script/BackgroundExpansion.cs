@@ -16,14 +16,14 @@ public class BackgroundExpansion : MonoBehaviour
     public GameObject[] neighbours = new GameObject[8]; //NW, N, NE, W, E, SW, S, SE
     public int ID;
     private static int backgroundCreationCounter = 0;
-
     public GameObject background;
+
     private void Start()
     {
         player = GameObject.Find("Player");
         ID = backgroundCreationCounter++;
         allBackgroundTiles.Add(this);
-        foodObject = (GameObject)Resources.Load("Assets/prefabs/FoodObject.prefab", typeof(GameObject));
+        foodObject = GameObject.FindWithTag("Food");
         createFood();
     }
 
@@ -146,11 +146,6 @@ public class BackgroundExpansion : MonoBehaviour
         neighbours[7].GetComponent<BackgroundExpansion>().neighbours[1] = neighbours[4];
         neighbours[7].GetComponent<BackgroundExpansion>().neighbours[3] = neighbours[6];
 
-
-        foreach (GameObject go in neighbours)
-        {
-            go.GetComponent<BackgroundExpansion>().foodObject = this.foodObject;
-        }
 
         removeUnusedBackgrounds();
     }
