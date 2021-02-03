@@ -7,16 +7,21 @@ public class FoodMeter : MonoBehaviour
 
     public GameObject player;
     private RectTransform rectTransform;
-
+    private float barPercent = 500 / 100;
+    RectTransform bar;
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        // rectTransform = GetComponent<RectTransform>();
+       
+        bar = GameObject.FindWithTag("Bar").GetComponent<RectTransform>();
+
 
     }
 
 
     void Update()
     {
-        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 10000.0f);
+        
+        bar.localScale = new Vector3(barPercent * player.GetComponent<Playerbehaviour>().foodMeter, 40f);
     }
 }

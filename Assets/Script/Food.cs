@@ -11,7 +11,7 @@ public class Food : MonoBehaviour
         if (col.gameObject.name.Equals("Player"))
         {
             Playerbehaviour player = col.GetComponent<Playerbehaviour>();
-            player.foodMeter += foodValue;
+            player.addFood(foodValue);
             Destroy(gameObject);
         }
     }
