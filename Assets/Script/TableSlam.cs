@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TableSlam : MonoBehaviour
 {
+    public GameObject hand;
+    public AudioClip slamSound;
+    public float volume = 0.5f;
+
     public float minOpacity = 0.2f;
     public float maxOpacity = 0.9f;
     public float opacityChange = 0.02f;
@@ -12,14 +16,14 @@ public class TableSlam : MonoBehaviour
     public float minScale = 0.5f;
     public float scaleChange = 0.02f;
 
-    private new Transform transform;
+    //private new Transform transform;
     private new SpriteRenderer renderer;
     private float scale;
 
     void Start()
     {
         scale = maxScale;
-        transform = GetComponent<Transform>();
+        //transform = GetComponent<Transform>();
         renderer = GetComponent<SpriteRenderer>();
 
         transform.localScale = new Vector3(maxScale, maxScale, maxScale);
@@ -36,17 +40,14 @@ public class TableSlam : MonoBehaviour
 
     }
 
-    private void slam()
-    {
-        Debug.Log("slam");
-    }
     void Update()
     {
-   
-        if (scale <= 1f)
-        {
 
-            slam();
+        if (scale <= 1.5f)
+        {
+            Vector3 pos = transform.position - new Vector3(-1, 13, transform.position.z - 3);
+            AudioSource.PlayClipAtPoint(slamSound, pos, volume);
+            Instantiate(hand, pos, Quaternion.identity);
             Destroy(gameObject);
         }
 

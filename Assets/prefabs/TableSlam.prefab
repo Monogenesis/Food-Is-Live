@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f24431c58cd4043b1432f2ed994b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 7560544669091619060, guid: c9c30d0dddeb6b0429b873ee4ebdca8c, type: 3}
+  slamSound: {fileID: 8300000, guid: 7846322684c30a64fbb5766b29edb677, type: 3}
+  volume: 0.5
   minOpacity: 0.2
   maxOpacity: 0.9
   opacityChange: 0.02

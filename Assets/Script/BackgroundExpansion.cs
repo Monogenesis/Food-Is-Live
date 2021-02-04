@@ -8,7 +8,7 @@ public class BackgroundExpansion : MonoBehaviour
 {
     public GameObject player;
     public GameObject foodObject;
-    public static int foodPerChunk = 5;
+    public static int foodPerChunk = 8;
     public static int width = 25;
     public static int height = 25;
     private static List<BackgroundExpansion> allBackgroundTiles = new List<BackgroundExpansion>();
